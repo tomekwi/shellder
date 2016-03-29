@@ -24,7 +24,7 @@ function __bobthefish_cmd_duration -S -d 'Show command duration'
 end
 
 function __bobthefish_timestamp -S -d 'Show the current timestamp'
-  set -q theme_date_format; or set -l theme_date_format "+%c"
+  set -q theme_date_format; or set -l theme_date_format "+%H:%M:%S"
   echo -n ' '
   date $theme_date_format
 end
