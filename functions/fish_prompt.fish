@@ -257,5 +257,6 @@ function fish_prompt
   available svn; and prompt_svn
   prompt_finish
   echo
-  echo
+  set_color normal
+  echo '$ '
 end
