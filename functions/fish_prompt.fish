@@ -255,4 +255,5 @@ function fish_prompt
   available git; and prompt_git
   available svn; and prompt_svn
   prompt_finish
+  echo
 end
