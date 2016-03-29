@@ -246,6 +246,7 @@ end
 #
 function fish_prompt
   echo
+  echo
   set -g RETVAL $status
   prompt_status
   prompt_virtual_env
@@ -255,5 +256,6 @@ function fish_prompt
   available git; and prompt_git
   available svn; and prompt_svn
   prompt_finish
+  echo
   echo
 end
