@@ -245,6 +245,7 @@ end
 # Prompt
 #
 function fish_prompt
+  echo
   set -g RETVAL $status
   prompt_status
   prompt_virtual_env
