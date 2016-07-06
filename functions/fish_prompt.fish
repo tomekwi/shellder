@@ -58,6 +58,7 @@ function prompt_finish -d "Close open segments"
     set_color $current_bg
   end
   set -g current_bg NONE
+  set_color normal
 end
 
 
@@ -263,9 +264,9 @@ function __bobthefish_cmd_duration -S -d 'Show command duration'
 end
 
 function __bobthefish_timestamp -S -d 'Show the current timestamp'
+  echo -n ' '
   set -q theme_date_format; or set -l theme_date_format "+%H:%M:%S"
-  echo -n '   '
-  date $theme_date_format
+  date $theme_date_format | tr -d '\\n'
 end
 
 
@@ -276,7 +277,15 @@ end
 function fish_prompt
   set -g RETVAL $status
   echo
+
+  set_color $fish_color_autosuggestion[1]
+  __bobthefish_timestamp
+  __bobthefish_cmd_duration
+  set_color normal
   echo
+
+  echo
+
   prompt_status
   prompt_virtual_env
   prompt_user
@@ -285,9 +294,7 @@ function fish_prompt
   available git; and prompt_git
   available svn; and prompt_svn
   prompt_finish
-  set_color $fish_color_autosuggestion[1]
-  __bobthefish_cmd_duration
-  __bobthefish_timestamp
-  set_color normal
-  echo '$ '
+
+  echo
+  echo -n '$ '
 end
